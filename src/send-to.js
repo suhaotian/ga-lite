@@ -7,6 +7,9 @@ export default function sendTo (url) {
   }
 
   try {
+    if (typeof fetch === 'function') {
+      return fetch(url);
+    }
     const req = new window.XMLHttpRequest()
     req.open('GET', url, false)
     req.send()
